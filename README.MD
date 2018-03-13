@@ -1,4 +1,4 @@
-# Coffee Creator
+# Sequelized Coffee Creator
 Create a coffee... Then drink it!
 ## 1. Create your coffee
 Use the input field to enter a coffee drink, then click the add coffe button to have it listed under ORDER UP!

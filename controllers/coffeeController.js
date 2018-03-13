@@ -1,7 +1,8 @@
 var db = require("../models");
 module.exports = function(app) {
 	app.get("/", function(req, res) {
-		db.Coffee.findAll({}).then(function(dbCoffee) {
+		console.log("here");
+		db.Coffees.findAll({}).then(function(dbCoffee) {
 			res.json(dbCoffee);
 		});
 	});
@@ -39,4 +40,4 @@ module.exports = function(app) {
 			res.json(dbCoffee);
 		});
 	});
-}
+};
