@@ -1,22 +1,8 @@
 {
   "name": "sequelizedcoffeecreator",
   "version": "1.0.0",
-  "description": "Node Epxress Handlebars App",
+  "description": "Create a coffee... Then drink it! ## 1. Create your coffee Use the input field to enter a coffee drink, then click the add coffe button to have it listed under ORDER UP! ![Alt Text](https://github.com/danielaine3/CoffeeCreator/blob/master/public/assets/img/CreateCoffee.gif)",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danielaine3/sequelizedCoffeeCreator.git"
-  },
-  "author": "Dani Carter",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/danielaine3/sequelizedCoffeeCreator/issues"
-  },
-  "homepage": "https://github.com/danielaine3/sequelizedCoffeeCreator#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
@@ -25,6 +11,21 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.5.2",
     "npm": "^5.7.1",
-    "sequelize": "^4.23.0"
-  }
+    "sequelize": "^4.36.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielaine3/sequelizedCoffeeCreator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielaine3/sequelizedCoffeeCreator/issues"
+  },
+  "homepage": "https://github.com/danielaine3/sequelizedCoffeeCreator#readme"
 }
