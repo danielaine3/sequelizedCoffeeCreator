@@ -4,7 +4,7 @@ $(function() {
 		var newCoffee = {
 			name: $("#co").val().trim()
 		};
-		$.ajax("/api/coffee", {
+		$.ajax("/api/coffees", {
 			type:"POST",
 			data: newCoffee
 		}).then(
@@ -20,7 +20,7 @@ $(function() {
 		var newCoffeeState = {
 			drank: newDrank
 		};
-		$.ajax("/api/coffee/" + id, {
+		$.ajax("/api/coffees/" + id, {
 			type:"PUT",
 			data: newCoffeeState
 		}).then(
@@ -32,7 +32,7 @@ $(function() {
 	});
 	$(".delete-coffee").on("click", function(event) {
 		var id = $(this).data("id");
-		$.ajax("/api/coffee/" + id, {
+		$.ajax("/api/coffees/" + id, {
 			type: "DELETE",
 		}).then(
 			function() {

@@ -14,8 +14,9 @@
 <div class="ready">
 	<h3 id="readytitle">ORDER UP!</h3>
 	<ul>
-		{{#each coffee}}
-			{{#unless drank}}
+		{{#each this.coffee}}
+		<li>{{this.name}}</li>
+			{{#unless this.drank}}
 				{{> coffee/coffee-block drank=true}}
 			{{/unless}}
 		{{/each}}
@@ -24,8 +25,8 @@
 <div class="gone">
 	<h3 id="gonetitle">REFILLS!</h3>
 	<ul>
-		{{#each coffee}}
-			{{#if drank}}
+		{{#each this.coffee}}
+			{{#if this.drank}}
 				{{> coffee/coffee-block drank=false}}
 			{{/if}}
 		{{/each}} 

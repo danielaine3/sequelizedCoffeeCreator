@@ -5,52 +5,50 @@ var sequelizeConnection = db.sequelize;
 
 sequelizeConnection.sync();
 
-
 router.get("/", function(req, res) {
-	console.log("here");
-	db.Coffee.findAll({
-	}).then(function(dbCoffee) {
+	db.Coffees.findAll({
+	}).then(function(dbCoffees) {
 		// res.json(dbCoffee);
-		var hbsObject = {Coffee: dbCoffee};
+		var hbsObject = {Coffees: dbCoffees};
 		res.render('index', hbsObject);
-	})
+	});
 	// .catch(function(err) {
 	// 	res.json(err);
 	// });
 });
-router.post("/api/coffee", function(req,res) {
+router.post("/api/coffees", function(req,res) {
 	console.log(req.body);
-	db.Coffee.create({
-		name:req.body.text,
+	db.Coffees.create({
+		name:req.body.name,
 		drank: req.body.drank
-	}).then(function(dbCoffee) {
+	}).then(function(dbCoffees) {
 		res.redirect("/");
 	})
 	// .catch(function(err) {
 	// 	res.json(err);
 	// });
 });
-router.put("/api/coffee/:id", function(req, res) {
-	db.Coffee.update({
+router.put("/api/coffees/:id", function(req, res) {
+	db.Coffees.update({
 		name:req.body.name,
 		drank:req.body.drank
 	}, {
 		where: {
 			id: req.body.id
 		}
-	}).then(function(dbCoffee) {
+	}).then(function(dbCoffees) {
 		res.redirect("/");
 	})
 	// .catch(function(err) {
 	// 	res.json(err);
 	// });
 });
-router.delete("/api/coffee/:id", function(req, res) {
-	db.Coffee.destroy({
+router.delete("/api/coffees/:id", function(req, res) {
+	db.Coffees.destroy({
 		where: {
 			id: req.params.id
 		}
-	}).then(function(dbCoffee) {
+	}).then(function(dbCoffees) {
 		res.redirect("/");
 	});
 });
