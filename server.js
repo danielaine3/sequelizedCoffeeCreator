@@ -17,8 +17,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var router = require("./routes/api-routes.js");
-app.use('/', router);
+var routes = require("./controllers/coffee_controller.js");
+app.use(routes);
 
 //Start server
 var PORT = process.env.PORT || 3000;
