@@ -1,33 +1,39 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
+
+//Grab sequelize connection from models object
 var sequelizeConnection = db.sequelize;
 
+//sync tables
 sequelizeConnection.sync();
 
-router.get("/", function(req, res) {
+//redirect to index
+router.get('/', function (req, res) {
+	res.redirect('/index');
+});
+
+//Render coffees stored in database
+router.get("/index", function(req, res) {
 	db.Coffees.findAll({
-	}).then(function(dbCoffees) {
+	}).then(function(data) {
 		// res.json(dbCoffee);
-		var hbsObject = {Coffees: dbCoffees};
+		var hbsObject = {Coffees: data};
 		res.render('index', hbsObject);
 	});
-	// .catch(function(err) {
-	// 	res.json(err);
-	// });
 });
+
+//New coffee
 router.post("/api/coffees", function(req,res) {
-	console.log(req.body);
 	db.Coffees.create({
 		name:req.body.name,
-		drank: req.body.drank
-	}).then(function(dbCoffees) {
-		res.redirect("/");
-	})
-	// .catch(function(err) {
-	// 	res.json(err);
-	// });
+		// drank: req.body.drank
+	}).then(function(dataPost) {
+		res.json(dataPost);
+	});
 });
+
+//Drink coffee
 router.put("/api/coffees/:id", function(req, res) {
 	db.Coffees.update({
 		name:req.body.name,
@@ -36,20 +42,19 @@ router.put("/api/coffees/:id", function(req, res) {
 		where: {
 			id: req.body.id
 		}
-	}).then(function(dbCoffees) {
-		res.redirect("/");
+	}).then(function(dataPost) {
+		res.json(dataPost);
 	})
-	// .catch(function(err) {
-	// 	res.json(err);
-	// });
 });
+
+//Delete Coffee
 router.delete("/api/coffees/:id", function(req, res) {
 	db.Coffees.destroy({
 		where: {
 			id: req.params.id
 		}
-	}).then(function(dbCoffees) {
-		res.redirect("/");
+	}).then(function(dataPost) {
+		res.json(dataPost);
 	});
 });
 module.exports = router;

@@ -13,22 +13,24 @@
 </form>
 <div class="ready">
 	<h3 id="readytitle">ORDER UP!</h3>
+{{!-- 	<pre>{{json this}}</pre>
+	<pre>{{json this.coffee}}</pre> --}}
 	<ul>
-		{{#each this.coffee}}
-		<li>{{this.name}}</li>
-			{{#unless this.drank}}
+	{{!-- 	{{#each this.coffee}} --}}
+			{{!-- <li>{{this.name}}</li> --}}
+	{{!-- 		{{#unless this.drank}} --}}
 				{{> coffee/coffee-block drank=true}}
-			{{/unless}}
-		{{/each}}
+	{{!-- 		{{/unless}} --}}
+	{{!-- 	{{/each}} --}}
 	</ul>
 </div>
 <div class="gone">
 	<h3 id="gonetitle">REFILLS!</h3>
 	<ul>
-		{{#each this.coffee}}
-			{{#if this.drank}}
+	{{!-- 	{{#each coffee}} --}}
+	{{!-- 		{{#if drank}} --}}
 				{{> coffee/coffee-block drank=false}}
-			{{/if}}
-		{{/each}} 
+{{!-- 			{{/if}} --}}
+		{{!-- {{/each}}  --}}
 	</ul>
 </div>

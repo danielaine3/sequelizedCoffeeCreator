@@ -1,12 +1,26 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Coffees = sequelize.define('Coffees', {
-    name: DataTypes.STRING,
-    drank: DataTypes.BOOLEAN
-  }, {});
-  console.log("Coffees are here" + Coffees);
-  Coffees.associate = function(models) {
-    // associations can be defined here
-  };
+    name: {
+    	type: DataTypes.STRING,
+    	allowNull: false,
+    	validate: {
+    		len: [1]
+    	}
+    },
+    drank: {
+		  type: DataTypes.BOOLEAN,
+		  allowNull: false,
+		  defaultValue: false
+    }
+  });
+  // Coffees.associate = function(models) {
+  // 	Coffees.belongsTo(models.Customer, {
+  // 		onDelete: "CASCADE",
+  // 		foreignKey: {
+  // 			allowNull:false
+  // 		}
+  // 	});
+  // };
+
   return Coffees;
 };
