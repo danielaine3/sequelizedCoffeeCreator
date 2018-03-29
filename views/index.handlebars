@@ -13,31 +13,12 @@
 </form>
 <div class="ready">
 	<h3 id="readytitle">ORDER UP!</h3>
-{{!-- 	<pre>{{json this}}</pre>
-	<pre>{{json this.coffee}}</pre> --}}
 	<ul>
-		{{#each coffee}}
-			{{!-- <li>{{this.name}}</li> --}}
-			{{#unless this.drank}}
-				{{!-- {{> coffee/coffee-block drank=true}} --}}
-				<pre>{{this.id}}. {{this.name}}</pre>
-				<button class="drink" data-id="{{id}}" data-newdrank="{{drank}}">
-					{{#if drank}}Drink Coffee!{{else}}REFILL!{{/if}}
-				</button>
-			{{/unless}}
-		{{/each}}
+		{{> coffee/coffee-block}}
 	</ul>
 </div>
 <div class="gone">
-	<h3 id="gonetitle">REFILLS!</h3>
+	<h3 id="gonetitle">EMPTIES!</h3>
 	<ul>
-		{{#each coffee}}
-			{{#if this.drank}}
-				<div>{{this.id}}. {{this.name}}</div>
-				{{!-- {{> coffee/coffee-block drank=false}}--}}
-				<button class= "delete-coffee" data-id="{{this.id}}"><i class="far fa-trash-alt"></i>
-				</button>
- 			{{/if}}
-		{{/each}} 
-	</ul>
+		{{> coffee/coffee-block-drank}}
 </div>

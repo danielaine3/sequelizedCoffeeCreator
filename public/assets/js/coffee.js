@@ -24,7 +24,7 @@ $(function() {
 			type:"PUT",
 			data: newCoffeeState
 		}).then(
-			function() {
+			function(data) {
 				console.log("changed drank to", newDrank);
 				location.reload();
 			}
@@ -36,8 +36,8 @@ $(function() {
 			type: "DELETE",
 		}).then(
 			function() {
-			console.log("deleted coffee" + id);
-			location.reload();
+				console.log("deleted coffee" + id);
+				location.reload();
 			}
 		);
 	});
