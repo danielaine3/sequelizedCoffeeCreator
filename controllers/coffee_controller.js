@@ -57,7 +57,7 @@ router.delete("/api/coffees/:id", function(req, res) {
 			id: req.params.id
 		}
 	}).then(function(data) {
-		// res.redirect("/");
+		res.end();
 	});
 });
 module.exports = router;
